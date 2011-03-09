@@ -58,11 +58,14 @@ module TableHelper
       end.join("\n").html_safe
       "\n#{@template.content_tag(:tbody, content, options, false)}".html_safe
     end    
-
+    
     def r(*args, &block)
-      raise ArgumentError, "Missing block" unless block_given?
-      options = options_from_hash(args)
-      @template.content_tag(:tr, nil, options, true, &block)
+      if block_given?
+        @template.content_tag(:tr, nil, options_from_hash(args), true, &block)
+      else
+        content = args.shift
+        @template.content_tag(:tr, content, options_from_hash(args))
+      end
     end
 
     def h(*args, &block)

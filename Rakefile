@@ -25,6 +25,7 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "table_builder"
+    gem.version = "0.0.4"
     gem.summary = %Q{Rails builder for creating tables and calendars inspired by ActionView's FormBuilder.}
     gem.description = %Q{Rails builder for creating tables and calendars inspired by ActionView's FormBuilder.}
     gem.email = ""
